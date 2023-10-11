@@ -20,11 +20,15 @@ class MyHomePage extends StatefulWidget {
 
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+  State<MyHomePage> createState() {
+      return _MyHomePageState();
+
+  }
+  }
 
 class _MyHomePageState extends State<MyHomePage> {
    final TextEditingController _controller = TextEditingController();
+    List<widget> _todolist = new List();
 
 
   @override
@@ -35,18 +39,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
         child:SingleChildScrollView(
           child: Column(
-            children: [
+            children:[
                const Padding(padding: EdgeInsets.all(10),   
               child: 
               Text('Shopping List', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
               ),
               ), 
 
-              Padding( padding: EdgeInsets.all(20),
+              Padding( padding: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding( padding: EdgeInsets.all(5),
+                    Padding( padding: const EdgeInsets.all(5),
                       child: SizedBox(
                         width: 200,
                         height: 40,
@@ -56,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           decoration:  InputDecoration(
                             hintText: 'Title...',
                             filled: true,
-                            fillColor: Color.fromARGB(255, 197, 197, 197),
+                            fillColor: const Color.fromARGB(255, 197, 197, 197),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(2),
                               borderSide: BorderSide.none
@@ -66,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    Padding( padding: EdgeInsets.all(5),
+                    Padding( padding: const EdgeInsets.all(5),
                       child: SizedBox(
                         width: 70,
                         height: 40,
@@ -76,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           decoration:  InputDecoration(
                             hintText: 'Date...',
                             filled: true,
-                            fillColor: Color.fromARGB(255, 216, 216, 216),
+                            fillColor: const Color.fromARGB(255, 216, 216, 216),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(2),
                               borderSide: BorderSide.none
@@ -87,19 +91,33 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
               
-                    Padding(padding: EdgeInsets.only(left:5),
+                    Padding(padding: const EdgeInsets.only(left:5),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
-                        side: BorderSide(color: Colors.yellow)
+                        side: const BorderSide(color: Colors.yellow)
                          ),
-                        onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          _todolist.add(const Text('text'));
+                          print(_todolist);
+                        });
+                      },
                          child: const Text('Add', style: TextStyle(color: Colors.yellow),),
                                     ),
                     )
                   ],
                 ),
-              )
+              ),
+             Expanded(
+              child: ListView.builder(
+                itemCount: _todolist.length,
+                itemBuilder: (context, index){
+                  widget widget = _todolist.elementAt(index);
+
+                  return widget;
+                })
+                )
             ],
           ),
         ),
@@ -107,3 +125,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
