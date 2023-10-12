@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                   Text(_dateController.text),
 
-              Padding(padding: EdgeInsets.only(right: 5),
+              Padding(padding: const EdgeInsets.only(right: 5),
                 child: SizedBox(
                   width: 100,
                   height: 38,
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                       )
                     ),
                      child: 
-                          Text('Add', textAlign: TextAlign.center,),
+                          const Text('Add', textAlign: TextAlign.center,),
                       
                       ),
                 ),
