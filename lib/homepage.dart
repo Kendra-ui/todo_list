@@ -16,6 +16,14 @@ class _HomePageState extends State<HomePage> {
   final _titleController = TextEditingController();
   final _dateController = TextEditingController();
 
+  void deleteItem(int index) {
+    setState(() {
+      if (index >= 0 && index < todos.length) {
+        todos.removeAt(index);
+      }
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return  
@@ -112,8 +120,11 @@ class _HomePageState extends State<HomePage> {
           child: ListView.builder(
             itemCount: todos.length,
             itemBuilder: (context, index){
-              return  TodoContainer(todo: todos[index],);
-            }
+              
+            return  TodoContainer(todo: todos[index], deleteItem: (int ) { todos[index]; },);
+
+
+            } 
             ),
         ),
       )
