@@ -1,17 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo_list/todo.dart';
-
 // ignore: must_be_immutable
 class TodoContainer extends StatelessWidget {
   
   final Todo todo;
-  final Function deleteItem;
+  final void Function()? deleteItem;
+
 
    const TodoContainer
-  ({super.key,required this.todo, required this.deleteItem});
-  
-  get index => null;
+  ({Key? key,required this.todo, required this.deleteItem}): super(key: key);
   
 
   @override
@@ -33,9 +31,7 @@ class TodoContainer extends StatelessWidget {
 
           title:  Text(todo.title,style: const TextStyle(color: Colors.white) ,),
           trailing:  InkWell(
-             onTap:() {
-              deleteItem(index);
-             },
+             onTap: deleteItem,
 
             child:  
             const Icon(Icons.cancel_sharp, color: Colors.yellow,)

@@ -18,9 +18,8 @@ class _HomePageState extends State<HomePage> {
 
   void deleteItem(int index) {
     setState(() {
-      if (index >= 0 && index < todos.length) {
         todos.removeAt(index);
-      }
+      
     });
   }
   
@@ -121,7 +120,8 @@ class _HomePageState extends State<HomePage> {
             itemCount: todos.length,
             itemBuilder: (context, index){
               
-            return  TodoContainer(todo: todos[index], deleteItem: (int ) { todos[index]; },);
+              // we are passing delete as a function
+            return  TodoContainer(todo: todos[index], deleteItem: () =>deleteItem(index),);
 
 
             } 

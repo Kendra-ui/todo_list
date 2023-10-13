@@ -33,9 +33,16 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {  
-    return const Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.black,
-      body:SafeArea(child: HomePage()) ,
+      body:SafeArea(
+        child:Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/images/BG.jpg"),
+            //fit: BoxFit.cover
+            ),
+          ),
+        child:  const HomePage())) ,
 
     );
   }
