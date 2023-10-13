@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
 import 'package:todo_list/homepage.dart';
 
 
@@ -15,26 +14,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner:false ,
-      home:  MyHomePage(),
+      home:  Home(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Home> createState() => _HomeState();
   }
 
-class _MyHomePageState extends State<MyHomePage> {
-
+class _HomeState extends State<Home> {
+   
   
 
   @override
   Widget build(BuildContext context) {  
     return const Scaffold(
+      backgroundColor: Colors.black,
+      body:SafeArea(child: HomePage()) ,
+
     );
   }
 }
